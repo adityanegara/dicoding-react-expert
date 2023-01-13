@@ -1,0 +1,65 @@
+A) Latar Belakang
+: Banyak hal yang tidak ditetapkan conventionnya dalam Javascript. Seperti
+Penulisan semicolon, penulisan kutip pada string, penulisan function 
+dan masih banyak lagi. Hal ini mengakibatkan ketidak konsistenan cara
+penulisan antara developer.
+
+B) Style Guide
+    B.1) Latar Belakang
+    : Inkonsistensi gaya penulisan akan menyulitkan komunikasi antar developer.
+    Hal ini biasa terjadi pada pair programming atau code review. 
+
+    B.2) Manfaat Style Guide
+    : 1) Membuat penulisan lebih konsisten
+      2) Membantu proses onbioarding pada anggota tim baru
+      3) Menambah wawasan guna menjadi programmer yang lebih baik
+      4) Membantu proses review kode
+
+    B.3) Style guide populer
+    : 1) Airbnb 
+      2) Google 
+      3) Standart JavaScript
+
+C) Linter
+: Tool yang membantu menganalisis kesalahan kode. Misalnya
+gaya penulisas, sintaksis, potensi buks, dan sebagainya.
+
+D) Memasang Linter pada Project React
+: 1) Install Linter
+  : npm install eslint --save-dev
+
+  2) Konfigurasi Linter
+  : npx eslint --init
+
+  3) Jawab pertanyaan Konfigurasi
+  : 1) How would you like to use ESLint?
+    : To check syntax, find problems, and enforce code style
+    2) What type of modules does your project use? 
+    : JavaScript modules (import/export)
+    3) Which framework does your project use?
+    : React
+    4) Does your project use TypeScript?
+    5) Where does your code run? 
+    : Browser, Node
+    6) How would you like to define a style for your project?
+    : use a popular style guide
+    7) Which style guide do you want to follow?
+    : AirBnb / google / Javascript
+    8) What format do you want your config file to be in?
+    : JSON
+    9) (List of react eslint plugins) install them now? 
+    : Yes
+    10) Which package manager do you want to use? (pilih yang Anda gunakan).
+    : NPM
+
+  4) Mengaudit kode
+  : npx eslint \"**/*.{js,jsx}\" atau npx eslint \"**/*.{ts,tsx}\"
+
+  5) Pasang script pada package.json
+  : "lint": "eslint \"**/*.{js,jsx}\"" atau "lint": "eslint \"**/*.{ts,tsx}\""
+
+  6) Command untuk audit
+  : npm run lint
+
+  7) Installe extensi vscode ESLINT
+  

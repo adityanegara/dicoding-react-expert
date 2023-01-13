@@ -62,4 +62,6 @@ D) Memasang Linter pada Project React
   : npm run lint
 
   7) Installe extensi vscode ESLINT
+
+  8) Jika 
   

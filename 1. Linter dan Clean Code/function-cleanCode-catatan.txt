@@ -1,0 +1,135 @@
+A) Nilai default pada argumen
+: Javascript bersifat weak typing. Artinya
+tidak menjamin developer akan memberikan Nilai
+argumen pada sebuah fungsi. Maka dari itu 
+sebaiknya kita memberikan nilai default.
+
+    A.1) Contoh Salah
+    : const createCharacter = (name) =>{
+        const _name = name || 'Unknown';
+        return {
+            id: generateIdWithPrefix(__name),
+            name: _name,
+            health: 100,
+            mana: 100,
+            experience: 0,
+        }
+    }
+
+    A.2) Contoh Benar
+    : const createCharacter = (name : 'Unknown') =>{
+        return {
+            id: generateIdWithPrefix(__name),
+            name: name,
+            health: 100,
+            mana: 100,
+            experience: 0,
+        }
+    }
+
+B) Jumlah Argumen fungsi
+: Bila suatu fungsi memiliki lebih dari 3 argumen.
+Ada baiknya dipecah menjadi fungsi yang lebih kecil.
+Namun bila tidak bisa. Kita dapat menggunakan object destructuring
+agar
+1) Jelas terlihat kebutuhan nilai pada fungsi
+2) Mensimulasikan sebagai parameter bernama
+3) Mencegah efek samping
+
+    B.1) Contoh Salah
+    : const showPopup = (title, message, icon, action) =>{}
+      showPopup('Foo', 'Bar', 'Baz.ico', () =>{})
+
+    B.2) Contoh Benar
+    : const showPopup = ({title, message, icon , action}) =>{}
+      showPopup(
+        {
+            title: 'Foo',
+            message: 'Bar',
+            icon: 'Baz.ico',
+            action: ()=>{}
+        }
+    )
+
+C) Melakukan satu hal
+: Fungsi akan sulit untuk dipahami dan diuji
+ketika melakukan banyak hal. Cobalah untuk memecahnya
+hingga fungsi benar-benar melakukan satu hal.
+
+    C.1) Contoh Salah
+    : const sendInvitationToFriends = (friends) =>{
+        const activeFriends = 
+        friends.filter((friend)=>friend.active)
+
+        activeFriends.forEach((friend) => sendInvitation(friend))
+    }
+
+    C.2) Contoh Benar
+    : const getActiveFriends = (friends) =>{
+      return friends.filter((friend)=>friend.active)
+    }
+
+    : const sendInvitationToFriends = (friends) =>{
+        const activeFriends = getActiveFriends(friends)
+        activeFriends.forEach((friend) => sendInvitation(friend))
+    }
+
+D) Nama fungsi harus menggambarkan tujuannya
+    D.1) Contoh Salah
+    : const addToDate = (date, month) =>{}
+
+    D.2) Contoh Benar
+    : const addMonthToDate = (date, month) =>{}
+
+E) Enkapsulasi Kondisional
+: Tak jarang ketika menggunakan perkondisian, membuat
+suatu fungsi panjang. Ada baiknya memecah perkondisian
+yang panjang menjadi fungsi tersendiri.
+
+    E.1) Contoh Salah
+    : if(response.state === 'loading' && isEmpty(list))
+
+    E.2) Contoh benar
+    : const isShowLoading = () =>{
+        f(response.state === 'loading' && isEmpty(list))
+    }
+
+F) Hindari Negasi Kondisional
+
+G) Hindari Flagging Melalui Argumen
+: Flagging dapat mengarahkan fungsi untuk melakukan
+lebih dari satu hal.
+
+    G.1) Contoh Salah
+    : function printCertificate(name, signature) {
+        if (signature) {
+        console.log(`Congrats, ${name}! Signatured by: ${signature}`);
+        } else {
+        console.log(`Congrats, ${name}!`);
+        }
+        }
+    
+    G.2) Contoh Benar
+    : function printCertificate(name) {
+        console.log(`Congrats, ${name}!`);
+        }
+        
+        function printCertificateWithSignature(name, signature) {
+        console.log(`Congrats, ${name}! Signatured by: ${signature}`);
+        }
+
+H) Hindari Efek tidak terduga
+: Di javascript banyak nilai yang pass by reference.
+
+    H.1) Contoh Salah
+    : function transformToUpperCase(arrayOfName) {
+        for (let i = 0; i < arrayOfName.length; i++) {
+            arrayOfName[i] = arrayOfName[i].toUpperCase();
+        }
+        return arrayOfName;
+    }
+
+    H.2) Contoh Benar
+    : function transformToUpperCase(arrayOfName) {
+        return arrayOfName.map((name) => name.toUpperCase());
+        }

@@ -1,0 +1,54 @@
+A) Variabel
+    A.1) Memiliki Arti
+    : Memberikan nama variabel yang bermakna akan
+    membantu developer lain atau setidaknya diri
+    kita sendiri dimasa mendatang supaya mudah
+    dalam membaca kode.
+
+        A.1.1) Contoh Salah
+        : const createMapUsingArrays = (array1, array2) =>{
+            return new Map(keys.map((key, index) => [key, value[index]))
+        }
+
+        A.1.2) Contoh Benar
+        : const createMapUsingArrays = (keys, valu) =>{
+            return new Map(keys.map((key, index) => [key, value[index]))
+        }
+
+    A.2) Mudah diucapkan
+        A.2.1) Contoh Salah
+        : const yyyymmdd = moment().format('YYYY/MM/DD');
+
+        A.2.2) Contoh Benar
+        : const currentDate = moment().format('YYYY/MM/DD');
+
+    A.3) Eksplisit
+    : Hindari penyingkatan kata dalam menamai variabel. Sebab,
+    seringkali kita lupa maksud dari penyingkatan kata tersebut.
+
+        A.3.1) Contoh Salah
+        : const friends = ['adit', 'alif', 'alder'];
+          friends.forEach((f)=>{invite(f)});
+
+        A.3.2) Contoh Benar
+        : const friends = ['adit', 'alif', 'alder'];
+          friends.forEach((friend)=>{invite(friend)})
+
+    A.4) Hemat
+    : Hindari pemberian kata yang konteksnya sudah jelas.
+        
+        A.4.1) Contoh Salah
+        : const Car = {
+            carManufacture: 'Toyota',
+            carModel: 'raize',
+            carColor: 'gray'
+        }
+
+        A.4.2) Contoh Benar
+        : const Car = {
+            manufacture: 'Toyota',
+            carModel: 'raize',
+            carColor: 'gray',
+        }
+
+        

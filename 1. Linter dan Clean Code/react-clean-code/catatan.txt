@@ -13,3 +13,13 @@ D) Gunakan Short Circuit Evaluation jika Satu Kondisi
 : Biasanya developer menggunakan ternary operator untuk melakukan 
 render perkondisian. Bila true akan merender dan bila false mengembalikan null.
 Dengan menggunakan short circuit akan membuat kode lebih ringkas.
+
+E) Gunakan Sintaks Destructuring
+: Sintaksis destrukturing dapat mengurangi kode yang kita tulis.
+
+F) Jangan berikan nilai pada props boolean
+: Props boolean pada react dapat diberikan tanpa menulis nilainya
+
+G) Jangan gunakan curly braces pada nilai props string
+: Anda tidak perlu lagi menuliskan string di dalam kurung kurawal, 
+kecuali nilai string tersebut membutuhkan JavaScript expression.

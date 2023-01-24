@@ -1,0 +1,25 @@
+A) Penjelasan React Strict Mode
+: Fragment react yang membantu menyoroti potensi bug. 
+Dengan strict mode, React akan menunjukkan beberapa celah yang rawan
+terjadi bug pada aplikasi React. 
+
+B) Penggunaan
+: import React from 'react';
+  root.render(
+    <React.StrictMode>
+        <ComponentLain/>
+    </React.StrictMode>
+  )
+
+C) Hal yang disorot React.StrictMode
+: C.1) Mengidentifikasi komponen terhadap penggunaan lifecycle method yang berbahaya
+  : Anda perlu waspada terhadap penggunaan beberapa lifecycle method yang berbahaya seperti
+    componentWillMount, componentWillReceiveProps, dan componentWillUpdate. Meskipun
+    React sudah menambahkan prefix UNSAFE pada method-method ini. Bisa saja library-library 
+    yang kita gunakan masih menggunakannya.
+
+  C.2) Peringatan berisi pengguaan ref API yang sudah lawas.
+  C.3) Peringatan berisi penggunaan findDomNode yang sudah usang.
+  C.4) Mendeteksi efek yang tidak terduga
+  C.5) Mendeteksi pengguaan Context API yang sudah lawas.
+  C.6) Memastikan state adpat digunakan kembali

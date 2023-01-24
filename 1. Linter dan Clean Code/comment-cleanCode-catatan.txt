@@ -1,0 +1,30 @@
+A) Best Practice comment
+    A.1) Hanya memberi komentar pada logika kompleks
+        A.1.1) Contoh Buruk
+        : const hashCode = () =>{
+            // The hash
+            let hash = 0;
+            // Loop through every character in data
+            for (let i = 0; i < this.length; i++) {
+            // Get character code
+            const char = this.charCodeAt(i);
+            // Make the hash
+            hash = ((hash << 5) - hash) + char;
+            // Convert to 32-bit integer
+            hash |= 0;
+            return hash
+        }
+
+        A.1.2) Contoh Baik
+        :   hashCode() {
+            let hash = 0;
+            for (let i = 0; i < this.length; i++) {
+            const char = this.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            // Convert to 32-bit integer
+            hash |= 0;
+            }
+            return hash;
+        }
+
+    A.2) Hapus Kode yang tidak diperlukan

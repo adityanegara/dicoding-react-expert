@@ -1,0 +1,19 @@
+A) Best PracticeError Handling
+: Dalam penanganan error, ada baiknya
+bila kita memberikan umpan balik kepada
+pengguna bahwa hal yang dilakukan gagal dan
+mungkin perlu diulangi. 
+    A.1) Contoh Buruk
+    : try{
+        fetchData();
+      }catch(error){
+        console.log(error)
+       }
+
+    A.2) Contoh Baik
+    : try{
+        fetchData();
+      }catch(error){
+        showGenericErrorToUser();
+        reportErrorToMonitoringService(error);
+      }

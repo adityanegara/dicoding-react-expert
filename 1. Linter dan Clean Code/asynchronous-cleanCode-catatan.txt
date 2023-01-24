@@ -1,0 +1,43 @@
+A) Gunakan promise daripada callback
+    A.1) Contoh Buruk
+    : const getUserWeather = (userId, callback) =>{
+        getUser(userId, (error, { user }) => {
+              if (error) {
+                callback(error, null);
+                return;
+            }
+
+             getWeather(user.location, (error, { weather }) => {
+                if (error) {
+                    callback(error, null);
+                    return;
+                }
+            
+            callback(null, weather);
+            });
+        })
+    }
+
+    A.2) Contoh Baik
+    : const getUserWeather = (userId) =>{
+        return getUser(userId).then((user) => getWeather(user.location)).catch(()=>{
+
+        })
+    }
+B) Gunakan async await daripada .then
+    B.1) Contoh Promise.then
+    : const getUserWeather = (userId) =>{
+        return getUser(userId).then((user) => getWeather(user.location)).catch(()=>{
+
+        })
+    }
+
+    B.2) Contoh async await
+    : const getUserWeather = async (userId) =>{
+        try{
+            const user = await getUser(userId);
+            return getWeather(user.location);
+        }catch(e){
+
+        }
+    }

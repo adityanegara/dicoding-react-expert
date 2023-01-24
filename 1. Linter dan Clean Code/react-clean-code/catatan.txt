@@ -1,0 +1,15 @@
+A) Function Component + Hooks daripada class Component
+: Hooks membuat kode komponen lebih singkat dan bersih.
+ Hooks juga memiliki serluruh fungsionalitas dari class component.
+
+ B) Pisahkan komponen pada berkas yang berbeda
+: Hindari membuat banyak komponen pada satu file/berkas. 
+Karena itu akan membuat kode lebih sulit dibaca.
+
+C) Jangan terlalu banyak menulis JavaScript di JSX.
+: Kode akan sulit dibaca bila terlalu banyak menulis kode Javascript.
+
+D) Gunakan Short Circuit Evaluation jika Satu Kondisi
+: Biasanya developer menggunakan ternary operator untuk melakukan 
+render perkondisian. Bila true akan merender dan bila false mengembalikan null.
+Dengan menggunakan short circuit akan membuat kode lebih ringkas.

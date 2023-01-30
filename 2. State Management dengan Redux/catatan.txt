@@ -1,0 +1,92 @@
+A) State Container
+    A.1) Latar Belakang
+    : Aplikasi React terdiri dari dua hal, yaitu UI dan state. UI dan State harus 
+    saling sinkron agar aplikasi dapat berjalans esuai harapan. Contohnya 
+    bila kita menambahkan daftar kontak baru, maka aplikasi harus beradaptasi
+    terhadap kontak yang baru. 
+      Seringkali bugs terjadi karena UI dan state sudah tidak sinkron. Hal ini
+    bisa terjadi karena perubahan state yang tidak terprediksi. Masalah
+    di atas disebabkan oleh pengelolaan state yang buruk sehingga perubahan state sulit
+    dilacak. Agar terhindar dari masalah ketidaksinkronan UI dan state, kita perlu
+    membuat perubahan statenya lebih terprediksi. Dengan cara
+    1) Memindahkan state ke dalam satu tempat dan
+    2) Membuat aturan khusus untuk setiap perubahan state-nya
+
+    A.2) State Tree
+    : Objek yang menyimpan seluruh state aplikasi dengan nama state tree,.
+
+    A.3) Interface State Tree
+    : Antarmuka state tree yang harus dapat
+    1) Mengambil nilai state
+    2) Mengubah nilai state
+    3) Mensubscribe state.
+
+    A.4) Store
+    : Konsep yang menampung State tree dan Interface State Tree
+
+    A.5) Keuntungan pemisahan state dari UI
+    : 1) Terbebas dari UI Library/Framework
+      2) Perubahan state lebih mudah diuji
+      3) State lebih mudah diakses pada seluruh cakupan komponen aplikasi
+      4) Dapat menetapkan aturan untuk mengubah nilai state
+
+B) Action
+: Action ialah objek yang berisikan type dan payload(opsional).
+Action berfungsi sebagai perintah untuk mengubah state.
+
+  B.1) Contoh
+  : {
+      type: "ADD_TODO",
+      payload: {
+        id: 'todo-123x',
+        nameL 'Learn React',
+        complete: false,
+      }
+    }
+
+    {
+      type: "REMOVE_ALL_TODO",
+    }
+
+C) Action Creator
+: Sebuah fungsi untuk membuat action. Tujuan
+dibuatnya action creator ialah agar setiap mengubah
+state tidak harus membuat action dari awal.
+
+  C.1) Contoh
+  : const addTodoActionCreator({id, name, complete}){
+    return {
+      type: "ADD_TODO",
+      payload: {
+        id,
+        name,
+        complete
+      }
+    }
+  }
+
+D) Reducer Function
+: Pure function yang berfungsi mengubah state baru 
+berdasarkan kalukalsi dari state saat ini dan
+action yang diberikan.
+
+  D.1) Syntax
+  : const <nama reducer> = (<state sekarang>, <action>) =>{}
+
+  D.2) Contoh
+  : const todosReducer = (todos = [], action = {}) =>{
+    if(action.type === 'ADD_TODO'){
+      return [...todos, action.payload];
+    }
+    if(action.type === "TOGGLE_TODO"){
+      return todos.map((todo) =>{
+        if(todo.id === action.payload.id){
+          return {...todo, complete: !todo.complete}
+        }
+      })
+      return todo;
+    }
+    if(action.type === "DELETE_TODO"){
+      return todos.filter(({id}) => id !== action.payload.id)
+    }
+  }

@@ -1,0 +1,60 @@
+A) Definisi React Redux
+: Library untuk menghubungkan redux dengan react.
+
+B) Provider
+: Komponen yang membungkus cakupan aplikasi agar komponen di dalamnya
+dapat mengakses Store.
+
+    B.1) Syntax
+    : import { Provider } from 'react-redux';
+      
+      const <Nama komponen> = () = {
+        return(
+            <Provider store={<stroe>}>
+                //child component
+            </Provider>
+        )
+      }
+
+    B.2) Contoh
+    : import { Provider } from 'react-redux';
+      import App from './App';
+      import store from './store';
+
+      const root = createRoot(document.getElementById('root'));
+
+      root.render(
+        <Provider store>
+            <App/>
+        </Provider>
+      )
+
+C) useSelector()
+: Custom hooks untuk berinteraksi dengan store. Ia menerima satu argumen yaitu
+sebuah fungsi yang mengembalikan nilai state adlam store. 
+
+    C.1) Syntax
+    : import { useSelector } from 'react-redux';
+      const <nama component> = () =>{
+        const <nama variable> = useSelector((<nama states>) => <nama states>);
+      }
+
+    C.2) Contoh
+    : import { useSelector } from 'react-redux';
+      const TodosList = () =>{
+        const todos = useSelector((states) => states.todos);
+      }
+
+D) useDispatch()
+: Fungsi hooks ini digunakan untuk mengakses fungsi dispatch() dalam store. Jadi kita bisa mengubah
+niali state pada komponen React.
+
+    D.1) Syntax import 
+    : import { useDispatch } from 'react-redux';
+
+       const <nama component> = () =>{
+            const <nama variable> = useSelector((<nama states>) => <nama states>);
+        }
+
+    D.2) Syntax penggunaan
+    : dispatch(<action creator>)

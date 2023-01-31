@@ -1,4 +1,4 @@
-import { createStore } from "./redux.js";
+import { createStore } from 'redux';
 
 const addGoalActionCreator = ({id, text}) =>{
   return {

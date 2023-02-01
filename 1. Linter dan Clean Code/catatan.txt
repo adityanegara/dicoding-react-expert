@@ -63,5 +63,7 @@ D) Memasang Linter pada Project React
 
   7) Installe extensi vscode ESLINT
 
-  8) Jika 
+  8) Jika typescript project tambahkan property
+  :   "project": ["./tsconfig.json"]
+  Pada parserOptions
   

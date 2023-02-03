@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import './index.css'
-import reducer from './store/reducer'
+// import reducer from './store/reducer'
+import rootReducer from './rootReducer'
 import App from './App'
 
 const root = ReactDOM.createRoot(
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Provider store={createStore(reducer)}>
+    <Provider store={createStore(rootReducer)}>
       <App />
     </Provider>
   </React.StrictMode>

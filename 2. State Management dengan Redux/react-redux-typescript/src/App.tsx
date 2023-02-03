@@ -1,21 +1,17 @@
-import * as React from 'react'
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import React, { useCallback } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { type Dispatch } from 'redux'
+import { addArticle, removeArticle } from './store/actionCreator'
+import { AddArticle } from './components/AddArticle'
+import { Article } from './components/Article'
 import './styles.css'
 
-import { Article } from './components/Article'
-import { AddArticle } from './components/AddArticle'
-import { addArticle, removeArticle } from './store/actionCreator'
-import { type Dispatch } from 'redux'
-
 const App: React.FC = () => {
-  const articles: readonly IArticle[] = useSelector(
-    (state: ArticleState) => state.articles,
-    shallowEqual
-  )
+  const { articles } = useSelector((state: State) => state.articles)
 
-  const dispatch: Dispatch<any> = useDispatch()
+  const dispatch: Dispatch = useDispatch()
 
-  const saveArticle = React.useCallback(
+  const saveArticle = useCallback(
     (article: IArticle) => dispatch(addArticle(article)),
     [dispatch]
   )

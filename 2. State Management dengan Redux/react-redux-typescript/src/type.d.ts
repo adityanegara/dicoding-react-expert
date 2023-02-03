@@ -4,6 +4,10 @@ interface IArticle {
   body: string
 }
 
+interface State {
+  articles: ArticleState
+}
+
 interface ArticleState {
   articles: IArticle[]
 }

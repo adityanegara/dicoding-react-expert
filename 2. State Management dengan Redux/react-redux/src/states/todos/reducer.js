@@ -16,6 +16,10 @@ export function todosReducer(todos = [], action = {}) {
         return todo;
       });
     }
+
+    if(action.type === 'RECEIVE_TODOS'){
+      return action.payload.todos
+    }
   
     return todos;
   }

@@ -8,8 +8,6 @@ function TodoList() {
   const todos = useSelector((states) => states.todos);
   const dispatch = useDispatch();
 
-
-
   useEffect(()=>{
     dispatch(asyncReceiveTodos());
   }, [dispatch])

@@ -1,0 +1,17 @@
+A) Latar Belakang
+: Bila kita menangani perubahan state yang sifatnya asynchronous. Seringkali
+perintah untuk mengambil datanya kita tuliskan pada component. Hal ini kurang tepat
+dikarenakan bila sudah mengaplikasikan state management seharusnya mengambil datanya
+harus pada state management tersebut.
+    Permasalahannya ialah action creator hanya mengembalikan objek action. 
+
+B) Solusi
+: Dibutuhkannya middleware untuk mengecek action yang diberikan adalah
+sebuah objek atau fungsi. Jika actionnya ialah objek maka proses
+berjalan normal. Namun, jika action adalah fungsi middleware akan
+menjalankan fungsi tersebut dan juga menyisipkan nilai-nilai
+yang mungkin dibutuhkan. 
+
+C) Thunk
+: Thunk ialah middleware yang berarti sepotong kode yang melakukan beberapa
+pekerjaan tertunda

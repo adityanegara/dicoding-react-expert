@@ -1,0 +1,33 @@
+A) Constant Action Type String
+    A.1) Latar Belakang
+    : Ketika mengelola state dengan redux, kerapkali kita menulis tipe action
+    berulang kali. Menulis tipe action berulang kali beresiko terjadinya typo.
+
+    A.2) Solusi
+    : Tuliskanlah action type dalam suatu Constant
+
+    A.3) Contoh Solusi
+    const ActionType = {
+        GET_TODOS: 'GET_TODOS',
+        CREATE_TODO: 'CREATE_TODO',
+        UPDATE_TODO: 'UPDATE_TODO',
+        DELETE_TODO: 'DELETE_TODO',
+    }
+
+B) Switch Case Reducer
+: Kode dalam fungsi reducer memiliki banyak cabang. Agar kode 
+percabangan lebih singkat dan jelas, Anda bisa menggunakan switch daripada if.
+
+C) Redux Toolkit
+: Cara yang disarankan redux untuk mengembangkan aplikasi ialah dengan package Redux Toolkit. 
+Package tersebut berisi banyak fungsi sebagai tools yang dapat mempermudah kita dalam
+menggunakan Redux.
+
+D) Debugging State dengan Redux DevTools
+: Redux Devtools ialah chrome library untuk membantu debugging aplikasi redux. 
+
+    D.1) Cara penggunaan
+    : const store = createStore(
+        reducer, /* preloadedState, */
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );

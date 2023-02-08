@@ -1,0 +1,42 @@
+A) Definisi Middleware
+: Menuliskan kode di antara proses dispatch action
+dan pemanggilan fungsi reducer di dalam store.
+
+B) Masalah yang diselesaikan Middleware
+: 1) logging
+  2) crash reporting
+  3) berinteraksi dengan Web aplikasi
+  4) Melakukan asynchronous proses
+
+C) Format Redux Middleware
+: function myMiddleware(store){
+    return fucntion(next){
+        return function (action){
+            <code middleware>
+            return next(action);
+        }
+    }
+}
+
+D) Penjelasan argumen fungsi
+    D.1) store
+    : Redux store yang bisa dimanfaatkan untuk mendapatkan
+    nilai state yang berada dalam store.
+
+    D.2) next
+    : Merupakan fungsi store.dispatch() yang hasil
+    pemanggilannya harus dikembalikan oleh fungsi
+    middleware agar penggunaannya dapat berantai.
+
+    D.3) action
+    : Objek action yang dikirim untuk mengubah state
+    dalam store.
+
+E) Menghubungkan fungsi middleware dengan Redux store.
+: Bisa dilakukan dengan memasukan fungsi 'applyMiddleware(<middleWare>)'
+yang disediakan redux.
+
+    E.1) Contoh
+    const store = 
+    createStore(rootReducer, 
+    applyMiddleware(loggerMiddleware, otherMiddleware))

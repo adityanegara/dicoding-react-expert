@@ -1,3 +1,5 @@
+import api from '../../utils/api';
+
 const ActionType = {
   RECEIVE_TALK_DETAIL: 'RECEIVE_TALK_DETAIL',
   CLEAR_TALK_DETIAL: 'CLEAR_TALK_DETAIL',
@@ -27,3 +29,36 @@ function toggleLikeTalkDetailActionCreator(userId) {
     },
   };
 }
+
+function asyncReceiveTalkDetail(talkId) {
+  return async (dispatch) => {
+    dispatch(clearTalkDetailActionCreator());
+    try {
+      const talkDetail = await api.getTalkDetail(talkId);
+      dispatch(receiveTalkDetailActionCreator(talkDetail));
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+}
+
+function asyncToggleLikeTalkDetail() {
+  return async (dispatch, getState) => {
+    const { authUser, talkDetail } = getState();
+    dispatch(toggleLikeTalkDetailActionCreator(authUser.id));
+    try {
+      await api.toggleLikeTalk(talkDetail.id);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+}
+
+export {
+  ActionType,
+  receiveTalkDetailActionCreator,
+  clearTalkDetailActionCreator,
+  toggleLikeTalkDetailActionCreator,
+  asyncReceiveTalkDetail,
+  asyncToggleLikeTalkDetail,
+};

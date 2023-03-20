@@ -28,17 +28,33 @@ const LoginWrapper = styled.section(({ theme }) => ({
     }
   },
   '.try': {
+    marginBottom: '3vh',
     gridArea: 'try',
     button: {
+      cursor: 'pointer',
+      paddingTop: '15px',
+      paddingBottom: '15px',
+      borderRadius: '10px',
       backgroundColor: theme.colors.accent.blue,
       border: 'none',
+      boxShadow: 'rgba(0, 0, 0, 0.4) 0px 5px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
       width: '100%',
       height: '100%',
+      transition: 'ease-in 0.2s',
       p: {
+        '.bold': {
+          fontWeight: '700'
+        },
+        lineHeight: '25px',
+        fontWeight: '500',
+        color: 'white',
         width: '65%',
         marginLeft: 'auto',
         marginRight: 'auto'
       }
+    },
+    'button:hover': {
+      backgroundColor: '#4c4484'
     }
   },
   '.form': {
@@ -67,7 +83,7 @@ const Login = (): JSX.Element => {
       </div>
       <div className="try">
         <button>
-          <p>Try it free 7 days then $20/mo. thereafter</p>
+          <p><span className='bold'>Try it free 7 days </span>then $20/mo. thereafter</p>
         </button>
       </div>
       <div className="form">Login form</div>

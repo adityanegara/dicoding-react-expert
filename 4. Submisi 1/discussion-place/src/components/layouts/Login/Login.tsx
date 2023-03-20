@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Container from '../../atoms/Container'
 
-const LoginWrapper = styled.section({
-  backgroundColor: 'red',
+const LoginWrapper = styled.section(({ theme }) => ({
+  backgroundColor: 'salmon',
   display: 'grid',
   gridTemplateAreas: `
   'text'
@@ -10,12 +11,35 @@ const LoginWrapper = styled.section({
   'form'
  `,
   '.text': {
-    backgroundColor: 'steelblue',
-    gridArea: 'text'
+    color: 'white',
+    marginTop: '10vh',
+    gridArea: 'text',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+    marginBottom: '5vh',
+    h1: {
+      margin: 0,
+      padding: 0
+    },
+    p: {
+      lineHeight: '25px'
+    }
   },
   '.try': {
-    backgroundColor: 'salmon',
-    gridArea: 'try'
+    gridArea: 'try',
+    button: {
+      backgroundColor: theme.colors.accent.blue,
+      border: 'none',
+      width: '100%',
+      height: '100%',
+      p: {
+        width: '65%',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }
+    }
   },
   '.form': {
     backgroundColor: 'seagreen',
@@ -27,21 +51,28 @@ const LoginWrapper = styled.section({
     'text form'
    `
   }
-})
+}))
 
 const Login = (): JSX.Element => {
   return (
-        <LoginWrapper aria-labelledby='login-page'>
-            <div className='text'>
-                Text Place
-            </div>
-            <div className='try'>
-                Try it button
-            </div>
-            <div className='form'>
-                Login form
-            </div>
-        </LoginWrapper>
+    <Container>
+    <LoginWrapper aria-labelledby="login-page">
+      <div className="text">
+        <h1>Learn to code by watching others</h1>
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable
+        </p>
+      </div>
+      <div className="try">
+        <button>
+          <p>Try it free 7 days then $20/mo. thereafter</p>
+        </button>
+      </div>
+      <div className="form">Login form</div>
+    </LoginWrapper>
+    </Container>
   )
 }
 

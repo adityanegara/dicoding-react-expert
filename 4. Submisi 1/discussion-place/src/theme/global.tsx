@@ -14,7 +14,8 @@ const global = css({
     fontFamily: `${theme.fonts.mainFont}, ${theme.fonts.secondaryFont}`
   },
   p: {
-    margin: 0
+    margin: 0,
+    fontSize: theme.fonts.size
   },
   'button, input': {
     fontFamily: [theme.fonts.mainFont, theme.fonts.secondaryFont],

@@ -1,0 +1,28 @@
+import { type Theme } from '@emotion/react'
+
+const theme: Theme = {
+  layout: {
+    mobile: '400px',
+    desktop: '1000px'
+  },
+  colors: {
+    primary: {
+      red: 'hsl(0, 100%, 74%)',
+      green: 'hsl(154, 59%, 51%)'
+    },
+    accent: {
+      blue: 'hsl(248, 32%, 49%)'
+    },
+    neutral: {
+      darkBlue: 'hsl(249, 10%, 26%)',
+      grayishBlue: 'hsl(246, 25%, 77%)'
+    }
+  },
+  fonts: {
+    size: '15px',
+    mainFont: 'Poppins',
+    secondaryFont: 'sans-serif'
+  }
+}
+
+export default theme

@@ -7,6 +7,8 @@ import theme from './styledTheme'
 
 const global = css({
   body: {
+    // eslint-disable-next-line @typescript-eslint/quotes
+    backgroundColor: 'salmon',
     margin: 0,
     boxSizing: 'border-box',
     padding: 0,

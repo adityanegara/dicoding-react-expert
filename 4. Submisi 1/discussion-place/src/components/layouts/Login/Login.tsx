@@ -58,8 +58,56 @@ const LoginWrapper = styled.section(({ theme }) => ({
     }
   },
   '.form': {
-    backgroundColor: 'seagreen',
-    gridArea: 'form'
+    borderRadius: '10px',
+    backgroundColor: 'white',
+    gridArea: 'form',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '17px',
+    padding: '25px 15px 25px 15px',
+    marginBottom: '10vh',
+    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 5px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+    input: {
+      fontWeight: '600',
+      borderRadius: '5px',
+      fontFamily: theme.fonts.mainFont,
+      padding: '5px 7px',
+      border: '1px solid hsl(246, 25%, 77%)',
+      color: theme.colors.neutral.darkBlue,
+      outline: 'none',
+      transition: 'ease-in 0.2s'
+    },
+    'input:focus': {
+      backgroundColor: '#edeff2'
+    },
+    'input::placeholder': {
+      color: theme.colors.neutral.darkBlue,
+      fontWeight: '600'
+    },
+    'input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active': {
+      '-webkit-box-shadow': '0 0 0 30px white inset !important'
+    },
+    button: {
+      backgroundColor: theme.colors.primary.green,
+      padding: '17px 0px',
+      border: 'none',
+      borderRadius: '8px',
+      color: 'white',
+      fontWeight: 'bold',
+      boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px'
+    },
+    p: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '90%',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: '0.75em',
+      color: theme.colors.neutral.grayishBlue,
+      a: {
+        color: theme.colors.primary.red
+      }
+    }
   },
   '@media (min-width: 1000px)': {
     gridTemplateAreas: `
@@ -86,7 +134,14 @@ const Login = (): JSX.Element => {
           <p><span className='bold'>Try it free 7 days </span>then $20/mo. thereafter</p>
         </button>
       </div>
-      <div className="form">Login form</div>
+      <form className="form">
+        <input type='text' placeholder='First Name'/>
+        <input type='text' placeholder='Last Name'/>
+        <input type='email' placeholder='Email Address'/>
+        <input type='password' placeholder='Password'/>
+        <button type='submit'>CLAIM YOUR FREE TRIAL</button>
+        <p>By clicking the button. you are agreeing to our <a>Terms and Services</a></p>
+      </form>
     </LoginWrapper>
     </Container>
   )

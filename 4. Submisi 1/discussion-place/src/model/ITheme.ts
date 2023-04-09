@@ -9,7 +9,9 @@ declare module '@emotion/react' {
     colors: {
       primary: {
         red: string
+        darkerRed: string
         green: string
+        darkerGreen: string
       }
       accent: {
         blue: string
@@ -17,6 +19,7 @@ declare module '@emotion/react' {
       neutral: {
         darkBlue: string
         grayishBlue: string
+        gray: string
       }
     }
     fonts: {

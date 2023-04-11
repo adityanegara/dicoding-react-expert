@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Input from '../../atoms/Input'
+import TermAndServicesLink from '../../molecules/TermAndServicesLink'
+import Button from '../../atoms/Button'
 
 const FormWrapper = styled.form(({ theme }) => ({
   borderRadius: '10px',
@@ -37,11 +39,8 @@ const LoginForm = (): JSX.Element => {
       <Input type='text' placeHolder='Last Name'/>
       <Input type='email' placeHolder='Email Address'/>
       <Input type='password' placeHolder='Password'/>
-      <button type="submit">CLAIM YOUR FREE TRIAL</button>
-      <p>
-        By clicking the button. you are agreeing to our{' '}
-        <a>Terms and Services</a>
-      </p>
+      <Button>Test</Button>
+      <TermAndServicesLink/>
     </FormWrapper>
   )
 }
